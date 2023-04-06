@@ -1,0 +1,28 @@
+<form method="GET" action="{% url 'search' %}">
+    <!--pagenation-->
+    <div>
+      <!-- {% if posts.has_previous %}
+        <a href="?page=1&search={{search}}">First</a>
+        <a href="?page={{posts.previous_page_number}}&search={{search}}">Previous</a>
+      {% endif %} -->
+  
+      <!-- <span>{{posts.number}} / {{posts.paginator.num_pages}}</span> -->
+      <!-- <span>{{postf.title}} / {{postf.content}}</span> -->
+      <!-- <a href="search={{search}}">First</a> -->
+  
+      <!-- {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}&search={{search}}">Next</a>
+        <a href="?page={{posts.paginator.num_pages}}&search={{search}}">Last</a>
+      {% endif %} -->
+        {% for post in postf %}
+                <li><a href="{% url 'detail' pk=post.id %}">{{post.title}}</a></li>
+                <span>{{post.upload_time}}</span>
+        {% endfor %}
+    </div>
+  
+    <!--검색-->
+    <div id="search">
+      <input name="search" type="text">
+      <button class="btn btn-primary" type="submit">검색</button>
+    </div>
+</form>
